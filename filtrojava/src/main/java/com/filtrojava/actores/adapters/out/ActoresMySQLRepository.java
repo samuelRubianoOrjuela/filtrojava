@@ -148,21 +148,21 @@ public class ActoresMySQLRepository implements ActoresRepository {
         return null;
     }
     
-        @Override
-        public List<Integer> getIDs(String tableName) {
-            List<Integer> IDsLsit = new ArrayList<>();
-            try (Connection connection = DriverManager.getConnection(url, user, password)) {
-                String query = "SELECT id FROM " + tableName;
-                try (PreparedStatement statement = connection.prepareStatement(query);
-                        ResultSet resultSet = statement.executeQuery()) {
-                        while (resultSet.next()) {
-                            int id = resultSet.getInt("id");
-                            IDsLsit.add(id);
-                        }
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+    @Override
+    public List<Integer> getIDs(String tableName) {
+        List<Integer> IDsLsit = new ArrayList<>();
+        try (Connection connection = DriverManager.getConnection(url, user, password)) {
+            String query = "SELECT id FROM " + tableName;
+            try (PreparedStatement statement = connection.prepareStatement(query);
+                    ResultSet resultSet = statement.executeQuery()) {
+                    while (resultSet.next()) {
+                        int id = resultSet.getInt("id");
+                        IDsLsit.add(id);
+                    }
             }
-            return IDsLsit;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return IDsLsit;
+    }
 }
