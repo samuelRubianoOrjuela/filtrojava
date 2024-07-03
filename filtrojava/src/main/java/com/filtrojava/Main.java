@@ -52,8 +52,8 @@ public class Main {
         String errMessage = "[¡]ERROR: El dato ingresado es incorrecto, intentelo de nuevo ";
         Scanner sc = new Scanner(System.in);
         String url = "jdbc:mysql://localhost:3306/cinecampus";
-        String user = "campus2023";
-        String password = "campus2023";
+        String user = "root";
+        String password = "123456";
         ActoresMySQLRepository actoresMySQLRepository = new ActoresMySQLRepository(url, user, password);
         ActoresService actoresService = new ActoresService(actoresMySQLRepository);
         ActoresConsoleAdapter actoresConsoleAdapter = new ActoresConsoleAdapter(actoresService);
